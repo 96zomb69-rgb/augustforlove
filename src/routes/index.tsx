@@ -92,9 +92,11 @@ function Invitation() {
     <main className="text-foreground overflow-x-hidden">
       <Hero />
       <Intro />
+      <Calendar />
       <Location />
       <Timeline />
       <DressCode />
+      <Contacts />
       <Rsvp />
       <Closing />
     </main>
