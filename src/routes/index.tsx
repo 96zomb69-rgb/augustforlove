@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import bride from "@/assets/bride.jpg";
-import groom from "@/assets/groom.jpg";
+import brideChild from "@/assets/bride-child.jpg";
+import groomChild from "@/assets/groom-child.jpg";
 import venue from "@/assets/venue.jpg";
-import closing from "@/assets/closing.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
