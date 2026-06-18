@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import bride from "@/assets/bride.jpg";
-import groom from "@/assets/groom.jpg";
+import brideChild from "@/assets/bride-child.jpg";
+import groomChild from "@/assets/groom-child.jpg";
 import venue from "@/assets/venue.jpg";
-import closing from "@/assets/closing.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,9 +92,11 @@ function Invitation() {
     <main className="text-foreground overflow-x-hidden">
       <Hero />
       <Intro />
+      <Calendar />
       <Location />
       <Timeline />
       <DressCode />
+      <Contacts />
       <Rsvp />
       <Closing />
     </main>
@@ -108,18 +109,20 @@ function Hero() {
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
           <p className="font-sans text-mute mb-10 text-[0.7rem] tracking-[0.5em] uppercase">
-            Save the date · 2026
+            Однажды, много лет назад…
           </p>
         </Reveal>
 
         <div className="relative mb-12 flex items-end justify-center gap-4 sm:gap-16">
           <Reveal delay={150}>
-            <Polaroid src={bride} alt="Оля" caption="Оля" rotate="-5deg" />
+            <Polaroid src={brideChild} alt="Оля в детстве" caption="Оля" rotate="-5deg" />
           </Reveal>
           <Reveal delay={350}>
-            <Polaroid src={groom} alt="Никита" caption="Никита" rotate="4deg" />
+            <Polaroid src={groomChild} alt="Никита в детстве" caption="Никита" rotate="4deg" />
           </Reveal>
         </div>
+
+
 
         <Reveal delay={500}>
           <h1 className="font-serif text-charcoal text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
@@ -502,29 +505,139 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 function Closing() {
   return (
     <section className="px-6 pt-10 pb-24">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-2xl text-center">
         <Reveal>
-          <div className="shadow-card overflow-hidden rounded-2xl">
-            <img
-              src={closing}
-              alt="Оля и Никита"
-              loading="lazy"
-              width={1280}
-              height={900}
-              className="block h-80 w-full object-cover sm:h-[28rem]"
-            />
-          </div>
+          <Ornament />
         </Reveal>
-        <Reveal delay={200}>
-          <div className="mt-14 text-center">
-            <Ornament />
-            <p className="font-serif text-charcoal mt-8 text-2xl italic sm:text-3xl">
-              С нетерпением ждём встречи с вами
+        <Reveal delay={150}>
+          <p className="font-serif text-charcoal mt-8 text-2xl italic sm:text-3xl">
+            С нетерпением ждём встречи с вами
+          </p>
+        </Reveal>
+        <Reveal delay={250}>
+          <p className="font-serif text-mute mt-6 text-lg">Оля &amp; Никита · 03.08.2026</p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Calendar() {
+  const weeks: (number | null)[][] = [
+    [null, null, null, null, null, 1, 2],
+    [3, 4, 5, 6, 7, 8, 9],
+    [10, 11, 12, 13, 14, 15, 16],
+    [17, 18, 19, 20, 21, 22, 23],
+    [24, 25, 26, 27, 28, 29, 30],
+    [31, null, null, null, null, null, null],
+  ];
+  const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+
+  return (
+    <section className="relative px-6 py-20 sm:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 20% 30%, rgba(120,100,80,0.5) 0, transparent 40%), radial-gradient(circle at 80% 70%, rgba(140,120,90,0.4) 0, transparent 45%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-xl">
+        <Reveal>
+          <SectionTitle kicker="Дата" title="Мы ждём вас" />
+        </Reveal>
+
+        <Reveal delay={150}>
+          <div className="bg-paper shadow-card rounded-3xl p-8 sm:p-12">
+            <div className="text-center">
+              <p className="font-sans text-accent text-[0.65rem] tracking-[0.5em] uppercase">
+                Август
+              </p>
+              <p className="font-serif text-charcoal mt-1 text-3xl italic">2026</p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-7 gap-y-2 text-center">
+              {days.map((d) => (
+                <span
+                  key={d}
+                  className="font-sans text-mute text-[0.6rem] tracking-[0.2em] uppercase"
+                >
+                  {d}
+                </span>
+              ))}
+              {weeks.flat().map((day, i) => {
+                const isWedding = day === 3;
+                return (
+                  <span
+                    key={i}
+                    className={`font-serif relative mx-auto flex h-9 w-9 items-center justify-center text-base sm:h-10 sm:w-10 ${
+                      day ? "text-charcoal" : "text-transparent"
+                    }`}
+                  >
+                    {isWedding && (
+                      <span
+                        aria-hidden="true"
+                        className="border-accent absolute inset-0 rounded-full border"
+                        style={{ transform: "rotate(-6deg) scale(1.05)" }}
+                      />
+                    )}
+                    <span className={isWedding ? "text-accent italic" : ""}>{day ?? "."}</span>
+                  </span>
+                );
+              })}
+            </div>
+
+            <div className="mt-8">
+              <Ornament />
+            </div>
+            <p className="font-serif text-charcoal mt-6 text-center text-lg italic sm:text-xl">
+              До встречи на нашей свадьбе — 03 / 08 / 2026
             </p>
-            <p className="font-serif text-mute mt-6 text-lg">Оля &amp; Никита · 03.08.2026</p>
           </div>
         </Reveal>
       </div>
     </section>
   );
 }
+
+function Contacts() {
+  const people = [
+    { role: "Невеста", name: "Оля", phone: "+7 XXX XXX-XX-XX" },
+    { role: "Жених", name: "Никита", phone: "+7 XXX XXX-XX-XX" },
+  ];
+  return (
+    <section className="px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-3xl">
+        <Reveal>
+          <SectionTitle kicker="Связь" title="Контакты" />
+        </Reveal>
+        <Reveal delay={150}>
+          <p className="font-sans text-mute mx-auto mb-12 max-w-xl text-center text-sm leading-relaxed">
+            Если у вас появятся вопросы, вы всегда можете связаться с нами.
+          </p>
+        </Reveal>
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-10">
+          {people.map((p, i) => (
+            <Reveal key={p.name} delay={250 + i * 120}>
+              <div className="bg-paper shadow-card rounded-2xl p-8 text-center sm:p-10">
+                <p className="font-sans text-accent text-[0.6rem] tracking-[0.4em] uppercase">
+                  {p.role}
+                </p>
+                <h3 className="font-serif text-charcoal mt-3 text-3xl italic">{p.name}</h3>
+                <div className="bg-line mx-auto my-5 h-px w-10" />
+                <a
+                  href={`tel:${p.phone.replace(/\s|-/g, "")}`}
+                  className="font-sans text-charcoal hover:text-accent text-sm tracking-[0.2em] transition-colors"
+                >
+                  {p.phone}
+                </a>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
