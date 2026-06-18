@@ -154,11 +154,11 @@ function Hero() {
 
         <Reveal delay={650}>
           <h1 className="font-serif text-charcoal mt-16 text-center text-3xl tracking-[0.08em] uppercase sm:mt-20 sm:text-6xl md:text-7xl">
-            <span>Никита</span>
+            <span>Ольга</span>
             <span className="text-accent mx-3 inline-block align-middle text-xl sm:mx-6 sm:text-3xl">
               ✦
             </span>
-            <span>Ольга</span>
+            <span>Никита</span>
           </h1>
         </Reveal>
 
