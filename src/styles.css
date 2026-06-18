@@ -50,6 +50,7 @@
 
 @utility font-serif { font-family: var(--font-serif); }
 @utility font-sans { font-family: var(--font-sans); }
+@utility font-hand { font-family: var(--font-hand); }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
