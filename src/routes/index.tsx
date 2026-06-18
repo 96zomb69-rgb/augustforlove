@@ -70,7 +70,7 @@ function Polaroid({
 }) {
   return (
     <figure
-      className="shadow-polaroid bg-paper p-3 pb-10 transition-transform duration-700 hover:rotate-0"
+      className="shadow-polaroid bg-paper p-3 pb-12 transition-transform duration-700 hover:rotate-0"
       style={{ transform: `rotate(${rotate})` }}
     >
       <img
@@ -78,9 +78,12 @@ function Polaroid({
         alt={alt}
         width={400}
         height={500}
-        className="block h-72 w-56 object-cover grayscale-[10%] sm:h-80 sm:w-60"
+        className="block h-56 w-44 object-cover sm:h-72 sm:w-56"
       />
-      <figcaption className="font-serif mt-3 text-center text-base italic text-charcoal">
+      <figcaption
+        className="font-hand mt-3 px-1 text-center text-lg leading-tight text-charcoal/80 sm:text-xl"
+        style={{ transform: "rotate(-2deg)" }}
+      >
         {caption}
       </figcaption>
     </figure>
@@ -105,53 +108,59 @@ function Invitation() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-16 pb-24 sm:pt-20 sm:pb-32">
-      <div className="mx-auto max-w-5xl text-center">
+    <section className="relative px-6 pt-14 pb-20 sm:pt-20 sm:pb-28">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-sans text-mute mb-10 text-[0.7rem] tracking-[0.5em] uppercase">
-            Однажды, много лет назад…
+          <p className="font-sans text-charcoal mb-12 text-center text-[0.7rem] tracking-[0.55em] uppercase sm:mb-16 sm:text-xs">
+            <span className="text-accent">W</span>edding{" "}
+            <span className="text-accent">D</span>ay
           </p>
         </Reveal>
 
-        <div className="relative mb-12 flex items-end justify-center gap-4 sm:gap-16">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-10">
           <Reveal delay={150}>
-            <Polaroid src={brideChild} alt="Оля в детстве" caption="Оля" rotate="-5deg" />
+            <div className="flex justify-center sm:justify-end">
+              <Polaroid
+                src={brideChild}
+                alt="Оля в детстве"
+                caption="— интересно, кто будет моим мужем, когда я вырасту?"
+                rotate="-6deg"
+              />
+            </div>
           </Reveal>
-          <Reveal delay={350}>
-            <Polaroid src={groomChild} alt="Никита в детстве" caption="Никита" rotate="4deg" />
+
+          <Reveal delay={300}>
+            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-2xl italic sm:gap-2 sm:text-4xl">
+              <span>03</span>
+              <span>08</span>
+              <span>26</span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={450}>
+            <div className="flex justify-center sm:justify-start">
+              <Polaroid
+                src={groomChild}
+                alt="Никита в детстве"
+                caption="— им буду я ♡"
+                rotate="5deg"
+              />
+            </div>
           </Reveal>
         </div>
 
-
-
-        <Reveal delay={500}>
-          <h1 className="font-serif text-charcoal text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
-            <span className="italic">Оля</span>
-            <span className="text-accent mx-4 inline-block align-middle text-3xl sm:text-5xl">
-              &amp;
+        <Reveal delay={650}>
+          <h1 className="font-serif text-charcoal mt-16 text-center text-3xl tracking-[0.08em] uppercase sm:mt-20 sm:text-6xl md:text-7xl">
+            <span>Никита</span>
+            <span className="text-accent mx-3 inline-block align-middle text-xl sm:mx-6 sm:text-3xl">
+              ✦
             </span>
-            <span className="italic">Никита</span>
+            <span>Ольга</span>
           </h1>
         </Reveal>
 
-        <Reveal delay={700}>
-          <div className="mt-12 mb-6">
-            <Ornament />
-          </div>
-        </Reveal>
-
         <Reveal delay={800}>
-          <div className="flex items-center justify-center gap-6 sm:gap-10">
-            <DateBlock label="день" value="03" />
-            <Sep />
-            <DateBlock label="месяц" value="08" />
-            <Sep />
-            <DateBlock label="год" value="2026" />
-          </div>
-        </Reveal>
-
-        <Reveal delay={900}>
-          <p className="font-sans text-mute mt-8 text-xs tracking-[0.4em] uppercase">
+          <p className="font-sans text-mute mt-10 text-center text-xs tracking-[0.4em] uppercase">
             Приглашаем вас на нашу свадьбу
           </p>
         </Reveal>
@@ -551,17 +560,19 @@ function Calendar() {
         <Reveal delay={150}>
           <div className="bg-paper shadow-card rounded-3xl p-8 sm:p-12">
             <div className="text-center">
-              <p className="font-sans text-accent text-[0.65rem] tracking-[0.5em] uppercase">
+              <p className="font-serif text-charcoal text-3xl tracking-[0.25em] uppercase sm:text-4xl">
                 Август
               </p>
-              <p className="font-serif text-charcoal mt-1 text-3xl italic">2026</p>
+              <p className="font-sans text-mute mt-2 text-[0.7rem] tracking-[0.4em] uppercase">
+                2026
+              </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-7 gap-y-2 text-center">
+            <div className="mt-8 grid grid-cols-7 gap-y-3 text-center">
               {days.map((d) => (
                 <span
                   key={d}
-                  className="font-sans text-mute text-[0.6rem] tracking-[0.2em] uppercase"
+                  className="font-sans text-mute text-[0.7rem] font-medium tracking-[0.2em] uppercase"
                 >
                   {d}
                 </span>
@@ -571,24 +582,38 @@ function Calendar() {
                 return (
                   <span
                     key={i}
-                    className={`font-serif relative mx-auto flex h-9 w-9 items-center justify-center text-base sm:h-10 sm:w-10 ${
+                    className={`font-serif relative mx-auto flex h-10 w-10 items-center justify-center text-xl sm:h-12 sm:w-12 sm:text-2xl ${
                       day ? "text-charcoal" : "text-transparent"
                     }`}
                   >
                     {isWedding && (
-                      <span
+                      <svg
                         aria-hidden="true"
-                        className="border-accent absolute inset-0 rounded-full border"
-                        style={{ transform: "rotate(-6deg) scale(1.05)" }}
-                      />
+                        viewBox="0 0 60 60"
+                        className="absolute inset-[-6px] h-[calc(100%+12px)] w-[calc(100%+12px)]"
+                      >
+                        <ellipse
+                          cx="30"
+                          cy="30"
+                          rx="24"
+                          ry="22"
+                          fill="none"
+                          stroke="#c0392b"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeDasharray="170 12"
+                          strokeDashoffset="-4"
+                          transform="rotate(-12 30 30)"
+                        />
+                      </svg>
                     )}
-                    <span className={isWedding ? "text-accent italic" : ""}>{day ?? "."}</span>
+                    <span className="relative">{day ?? "."}</span>
                   </span>
                 );
               })}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <Ornament />
             </div>
             <p className="font-serif text-charcoal mt-6 text-center text-lg italic sm:text-xl">
