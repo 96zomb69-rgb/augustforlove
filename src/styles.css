@@ -14,6 +14,7 @@
   --color-accent: var(--accent);
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-hand: "Caveat", "Comic Sans MS", cursive;
   --shadow-polaroid: 0 20px 40px -20px rgba(60, 50, 40, 0.25), 0 6px 14px -8px rgba(60, 50, 40, 0.15);
   --shadow-card: 0 10px 40px -20px rgba(60, 50, 40, 0.18);
 }
