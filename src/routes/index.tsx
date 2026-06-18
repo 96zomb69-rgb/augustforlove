@@ -109,18 +109,20 @@ function Hero() {
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
           <p className="font-sans text-mute mb-10 text-[0.7rem] tracking-[0.5em] uppercase">
-            Save the date · 2026
+            Однажды, много лет назад…
           </p>
         </Reveal>
 
         <div className="relative mb-12 flex items-end justify-center gap-4 sm:gap-16">
           <Reveal delay={150}>
-            <Polaroid src={bride} alt="Оля" caption="Оля" rotate="-5deg" />
+            <Polaroid src={brideChild} alt="Оля в детстве" caption="Оля" rotate="-5deg" />
           </Reveal>
           <Reveal delay={350}>
-            <Polaroid src={groom} alt="Никита" caption="Никита" rotate="4deg" />
+            <Polaroid src={groomChild} alt="Никита в детстве" caption="Никита" rotate="4deg" />
           </Reveal>
         </div>
+
+
 
         <Reveal delay={500}>
           <h1 className="font-serif text-charcoal text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
