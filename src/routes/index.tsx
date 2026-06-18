@@ -560,17 +560,19 @@ function Calendar() {
         <Reveal delay={150}>
           <div className="bg-paper shadow-card rounded-3xl p-8 sm:p-12">
             <div className="text-center">
-              <p className="font-sans text-accent text-[0.65rem] tracking-[0.5em] uppercase">
+              <p className="font-serif text-charcoal text-3xl tracking-[0.25em] uppercase sm:text-4xl">
                 Август
               </p>
-              <p className="font-serif text-charcoal mt-1 text-3xl italic">2026</p>
+              <p className="font-sans text-mute mt-2 text-[0.7rem] tracking-[0.4em] uppercase">
+                2026
+              </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-7 gap-y-2 text-center">
+            <div className="mt-8 grid grid-cols-7 gap-y-3 text-center">
               {days.map((d) => (
                 <span
                   key={d}
-                  className="font-sans text-mute text-[0.6rem] tracking-[0.2em] uppercase"
+                  className="font-sans text-mute text-[0.7rem] font-medium tracking-[0.2em] uppercase"
                 >
                   {d}
                 </span>
@@ -580,24 +582,38 @@ function Calendar() {
                 return (
                   <span
                     key={i}
-                    className={`font-serif relative mx-auto flex h-9 w-9 items-center justify-center text-base sm:h-10 sm:w-10 ${
+                    className={`font-serif relative mx-auto flex h-10 w-10 items-center justify-center text-xl sm:h-12 sm:w-12 sm:text-2xl ${
                       day ? "text-charcoal" : "text-transparent"
                     }`}
                   >
                     {isWedding && (
-                      <span
+                      <svg
                         aria-hidden="true"
-                        className="border-accent absolute inset-0 rounded-full border"
-                        style={{ transform: "rotate(-6deg) scale(1.05)" }}
-                      />
+                        viewBox="0 0 60 60"
+                        className="absolute inset-[-6px] h-[calc(100%+12px)] w-[calc(100%+12px)]"
+                      >
+                        <ellipse
+                          cx="30"
+                          cy="30"
+                          rx="24"
+                          ry="22"
+                          fill="none"
+                          stroke="#c0392b"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeDasharray="170 12"
+                          strokeDashoffset="-4"
+                          transform="rotate(-12 30 30)"
+                        />
+                      </svg>
                     )}
-                    <span className={isWedding ? "text-accent italic" : ""}>{day ?? "."}</span>
+                    <span className="relative">{day ?? "."}</span>
                   </span>
                 );
               })}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <Ornament />
             </div>
             <p className="font-serif text-charcoal mt-6 text-center text-lg italic sm:text-xl">
