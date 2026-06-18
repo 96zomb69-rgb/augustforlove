@@ -108,53 +108,59 @@ function Invitation() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-16 pb-24 sm:pt-20 sm:pb-32">
-      <div className="mx-auto max-w-5xl text-center">
+    <section className="relative px-6 pt-14 pb-20 sm:pt-20 sm:pb-28">
+      <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-sans text-mute mb-10 text-[0.7rem] tracking-[0.5em] uppercase">
-            Однажды, много лет назад…
+          <p className="font-sans text-charcoal mb-12 text-center text-[0.7rem] tracking-[0.55em] uppercase sm:mb-16 sm:text-xs">
+            <span className="text-accent">W</span>edding{" "}
+            <span className="text-accent">D</span>ay
           </p>
         </Reveal>
 
-        <div className="relative mb-12 flex items-end justify-center gap-4 sm:gap-16">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-10">
           <Reveal delay={150}>
-            <Polaroid src={brideChild} alt="Оля в детстве" caption="Оля" rotate="-5deg" />
+            <div className="flex justify-center sm:justify-end">
+              <Polaroid
+                src={brideChild}
+                alt="Оля в детстве"
+                caption="— интересно, кто будет моим мужем, когда я вырасту?"
+                rotate="-6deg"
+              />
+            </div>
           </Reveal>
-          <Reveal delay={350}>
-            <Polaroid src={groomChild} alt="Никита в детстве" caption="Никита" rotate="4deg" />
+
+          <Reveal delay={300}>
+            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-2xl italic sm:gap-2 sm:text-4xl">
+              <span>03</span>
+              <span>08</span>
+              <span>26</span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={450}>
+            <div className="flex justify-center sm:justify-start">
+              <Polaroid
+                src={groomChild}
+                alt="Никита в детстве"
+                caption="— им буду я ♡"
+                rotate="5deg"
+              />
+            </div>
           </Reveal>
         </div>
 
-
-
-        <Reveal delay={500}>
-          <h1 className="font-serif text-charcoal text-5xl leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
-            <span className="italic">Оля</span>
-            <span className="text-accent mx-4 inline-block align-middle text-3xl sm:text-5xl">
-              &amp;
+        <Reveal delay={650}>
+          <h1 className="font-serif text-charcoal mt-16 text-center text-3xl tracking-[0.08em] uppercase sm:mt-20 sm:text-6xl md:text-7xl">
+            <span>Никита</span>
+            <span className="text-accent mx-3 inline-block align-middle text-xl sm:mx-6 sm:text-3xl">
+              ✦
             </span>
-            <span className="italic">Никита</span>
+            <span>Ольга</span>
           </h1>
         </Reveal>
 
-        <Reveal delay={700}>
-          <div className="mt-12 mb-6">
-            <Ornament />
-          </div>
-        </Reveal>
-
         <Reveal delay={800}>
-          <div className="flex items-center justify-center gap-6 sm:gap-10">
-            <DateBlock label="день" value="03" />
-            <Sep />
-            <DateBlock label="месяц" value="08" />
-            <Sep />
-            <DateBlock label="год" value="2026" />
-          </div>
-        </Reveal>
-
-        <Reveal delay={900}>
-          <p className="font-sans text-mute mt-8 text-xs tracking-[0.4em] uppercase">
+          <p className="font-sans text-mute mt-10 text-center text-xs tracking-[0.4em] uppercase">
             Приглашаем вас на нашу свадьбу
           </p>
         </Reveal>
