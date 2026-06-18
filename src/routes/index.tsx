@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import brideChild from "@/assets/bride-child.jpg";
-import groomChild from "@/assets/groom-child.jpg";
+import olyaAsset from "@/assets/olya.jpg.asset.json";
+import nikitaAsset from "@/assets/nikita.jpg.asset.json";
 import venue from "@/assets/venue.jpg";
+
+const brideChild = olyaAsset.url;
+const groomChild = nikitaAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -151,11 +154,11 @@ function Hero() {
 
         <Reveal delay={650}>
           <h1 className="font-serif text-charcoal mt-16 text-center text-3xl tracking-[0.08em] uppercase sm:mt-20 sm:text-6xl md:text-7xl">
-            <span>Никита</span>
+            <span>Ольга</span>
             <span className="text-accent mx-3 inline-block align-middle text-xl sm:mx-6 sm:text-3xl">
               ✦
             </span>
-            <span>Ольга</span>
+            <span>Никита</span>
           </h1>
         </Reveal>
 
