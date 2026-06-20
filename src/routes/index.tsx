@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import olyaAsset from "@/assets/olya.jpg.asset.json";
 import nikitaAsset from "@/assets/nikita.jpg.asset.json";
-import venue from "@/assets/venue.jpg";
+import venueAsset from "@/assets/venue-8milya.jpg.asset.json";
 
 const brideChild = olyaAsset.url;
 const groomChild = nikitaAsset.url;
+const venue = venueAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -60,6 +61,28 @@ function Ornament() {
   );
 }
 
+function SectionDivider() {
+  return (
+    <div className="px-6 py-4" aria-hidden="true">
+      <div className="mx-auto flex max-w-md items-center justify-center gap-4 text-mute/60">
+        <span className="h-px flex-1 bg-gradient-to-r from-transparent to-line" />
+        <svg width="46" height="14" viewBox="0 0 46 14" fill="none" className="opacity-80">
+          <path
+            d="M2 7 Q 11 1 20 7 T 38 7"
+            stroke="currentColor"
+            strokeWidth="0.7"
+            fill="none"
+          />
+          <circle cx="23" cy="7" r="1.6" fill="currentColor" />
+          <circle cx="6" cy="7" r="0.9" fill="currentColor" opacity="0.5" />
+          <circle cx="40" cy="7" r="0.9" fill="currentColor" opacity="0.5" />
+        </svg>
+        <span className="h-px flex-1 bg-gradient-to-l from-transparent to-line" />
+      </div>
+    </div>
+  );
+}
+
 function Polaroid({
   src,
   alt,
@@ -73,15 +96,13 @@ function Polaroid({
 }) {
   return (
     <figure
-      className="shadow-polaroid bg-paper p-3 pb-12 transition-transform duration-700 hover:rotate-0"
+      className="shadow-polaroid bg-paper p-3 pb-10 transition-transform duration-700 hover:rotate-0"
       style={{ transform: `rotate(${rotate})` }}
     >
       <img
         src={src}
         alt={alt}
-        width={400}
-        height={500}
-        className="block h-56 w-44 object-cover sm:h-72 sm:w-56"
+        className="block h-auto w-44 sm:w-56"
       />
       <figcaption
         className="font-hand mt-3 px-1 text-center text-lg leading-tight text-charcoal/80 sm:text-xl"
@@ -97,12 +118,19 @@ function Invitation() {
   return (
     <main className="text-foreground overflow-x-hidden">
       <Hero />
+      <SectionDivider />
       <Intro />
+      <SectionDivider />
       <Calendar />
+      <SectionDivider />
       <Location />
+      <SectionDivider />
       <Timeline />
+      <SectionDivider />
       <DressCode />
+      <SectionDivider />
       <Contacts />
+      <SectionDivider />
       <Rsvp />
       <Closing />
     </main>
@@ -111,7 +139,7 @@ function Invitation() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-14 pb-20 sm:pt-20 sm:pb-28">
+    <section className="relative px-6 pt-14 pb-14 sm:pt-20 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-sans text-charcoal mb-12 text-center text-[0.7rem] tracking-[0.55em] uppercase sm:mb-16 sm:text-xs">
@@ -153,8 +181,8 @@ function Hero() {
         </div>
 
         <Reveal delay={650}>
-          <h1 className="font-serif text-charcoal mt-16 text-center text-3xl tracking-[0.08em] uppercase sm:mt-20 sm:text-6xl md:text-7xl">
-            <span>Ольга</span>
+          <h1 className="font-serif text-charcoal mt-14 text-center text-3xl tracking-[0.08em] uppercase sm:mt-16 sm:text-6xl md:text-7xl">
+            <span>Оля</span>
             <span className="text-accent mx-3 inline-block align-middle text-xl sm:mx-6 sm:text-3xl">
               ✦
             </span>
@@ -163,7 +191,7 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={800}>
-          <p className="font-sans text-mute mt-10 text-center text-xs tracking-[0.4em] uppercase">
+          <p className="font-sans text-mute mt-8 text-center text-xs tracking-[0.4em] uppercase">
             Приглашаем вас на нашу свадьбу
           </p>
         </Reveal>
@@ -172,24 +200,9 @@ function Hero() {
   );
 }
 
-function DateBlock({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="font-serif text-charcoal text-4xl sm:text-6xl">{value}</span>
-      <span className="font-sans text-mute mt-2 text-[0.6rem] tracking-[0.3em] uppercase">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-function Sep() {
-  return <span className="text-line font-serif text-3xl sm:text-5xl">/</span>;
-}
-
 function SectionTitle({ kicker, title }: { kicker: string; title: string }) {
   return (
-    <div className="mb-12 text-center">
+    <div className="mb-10 text-center">
       <p className="font-sans text-accent mb-4 text-[0.65rem] tracking-[0.5em] uppercase">
         {kicker}
       </p>
@@ -203,7 +216,7 @@ function SectionTitle({ kicker, title }: { kicker: string; title: string }) {
 
 function Intro() {
   return (
-    <section className="px-6 py-20 sm:py-28">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-2xl text-center">
         <Reveal>
           <SectionTitle kicker="Дорогие гости" title="Несколько слов" />
@@ -222,7 +235,7 @@ function Intro() {
 
 function Location() {
   return (
-    <section className="px-6 py-20 sm:py-28">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <SectionTitle kicker="Место" title="Где мы встретимся" />
@@ -233,10 +246,8 @@ function Location() {
             <div className="bg-paper shadow-card overflow-hidden rounded-2xl">
               <img
                 src={venue}
-                alt="Площадка"
+                alt="Загородный комплекс 8 миля"
                 loading="lazy"
-                width={1280}
-                height={800}
                 className="block h-72 w-full object-cover sm:h-96"
               />
             </div>
@@ -244,19 +255,19 @@ function Location() {
           <Reveal delay={300}>
             <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
               <p className="font-sans text-accent text-[0.65rem] tracking-[0.4em] uppercase">
-                Загородный клуб
+                Загородный комплекс
               </p>
               <h3 className="font-serif text-charcoal mt-3 text-3xl italic sm:text-4xl">
-                Villa Ambra
+                «8 Миля»
               </h3>
               <div className="bg-line my-6 h-px w-12" />
               <p className="font-sans text-mute text-sm leading-relaxed">
-                Московская область, посёлок Лесной, 12
+                Самарская область, Тольятти
                 <br />
-                Сбор гостей в 15:30
+                М-5 «Урал», 977-й километр
               </p>
               <a
-                href="https://yandex.ru/maps"
+                href="https://yandex.ru/maps/-/CTEAnO3O"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="font-sans text-charcoal hover:text-accent mt-8 inline-flex items-center gap-2 border-b border-line pb-1 text-xs tracking-[0.3em] uppercase transition-colors"
@@ -281,7 +292,7 @@ const TIMELINE = [
 
 function Timeline() {
   return (
-    <section className="px-6 py-20 sm:py-28">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-3xl">
         <Reveal>
           <SectionTitle kicker="Программа" title="План дня" />
@@ -316,15 +327,16 @@ function Timeline() {
 
 const SWATCHES = [
   { name: "Айвори", color: "#f3ece1" },
+  { name: "Бежевый", color: "#e3d2b8" },
   { name: "Песочный", color: "#d9c9ae" },
+  { name: "Розовый", color: "#e8c8c4" },
   { name: "Шалфей", color: "#b3b89e" },
-  { name: "Терракота", color: "#b87858" },
   { name: "Графит", color: "#4a4540" },
 ];
 
 function DressCode() {
   return (
-    <section className="px-6 py-20 sm:py-28">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
           <SectionTitle kicker="Дресс-код" title="Палитра вечера" />
@@ -356,18 +368,43 @@ function DressCode() {
   );
 }
 
+const ALCOHOL_OPTIONS = [
+  "Шампанское",
+  "Белое вино",
+  "Красное вино",
+  "Водка",
+  "Виски",
+  "Коньяк",
+  "Не пью алкоголь",
+];
+
 function Rsvp() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [attending, setAttending] = useState<"yes" | "no">("yes");
+  const [guests, setGuests] = useState<number>(1);
+  const [alcohol, setAlcohol] = useState<string[]>([]);
+
+  function toggleAlcohol(option: string) {
+    setAlcohol((prev) =>
+      prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option],
+    );
+  }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
+    const guestNames: string[] = [];
+    for (let i = 2; i <= guests; i++) {
+      const v = String(fd.get(`guest_${i}`) || "").trim();
+      if (v) guestNames.push(v);
+    }
     const payload = {
       name: String(fd.get("name") || ""),
       attending: String(fd.get("attending") || ""),
       guests: String(fd.get("guests") || ""),
+      guestNames,
       diet: String(fd.get("diet") || ""),
+      alcohol,
       comment: String(fd.get("comment") || ""),
       submittedAt: new Date().toISOString(),
     };
@@ -377,6 +414,8 @@ function Rsvp() {
       setStatus("ok");
       (e.target as HTMLFormElement).reset();
       setAttending("yes");
+      setGuests(1);
+      setAlcohol([]);
       return;
     }
 
@@ -391,6 +430,8 @@ function Rsvp() {
       setStatus("ok");
       (e.target as HTMLFormElement).reset();
       setAttending("yes");
+      setGuests(1);
+      setAlcohol([]);
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -398,7 +439,7 @@ function Rsvp() {
   }
 
   return (
-    <section id="rsvp" className="px-6 py-20 sm:py-28">
+    <section id="rsvp" className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-xl">
         <Reveal>
           <SectionTitle kicker="Анкета гостя" title="Подтверждение" />
@@ -449,10 +490,33 @@ function Rsvp() {
                 type="number"
                 min={1}
                 max={6}
-                defaultValue={1}
+                value={guests}
+                onChange={(e) => {
+                  const n = Math.max(1, Math.min(6, Number(e.target.value) || 1));
+                  setGuests(n);
+                }}
                 className="border-line focus:border-accent w-full border-b bg-transparent py-2 outline-none transition-colors"
               />
             </Field>
+
+            {guests > 1 && (
+              <div className="space-y-4 rounded-xl border border-line/70 bg-cream/40 p-5">
+                <p className="font-sans text-mute text-[0.65rem] tracking-[0.3em] uppercase">
+                  Имена остальных гостей
+                </p>
+                {Array.from({ length: guests - 1 }).map((_, i) => (
+                  <Field key={i} label={`Гость ${i + 2}`}>
+                    <input
+                      name={`guest_${i + 2}`}
+                      required
+                      maxLength={120}
+                      placeholder="Имя и фамилия"
+                      className="border-line focus:border-accent placeholder:text-mute/50 w-full border-b bg-transparent py-2 outline-none transition-colors"
+                    />
+                  </Field>
+                ))}
+              </div>
+            )}
 
             <Field label="Пищевые ограничения">
               <input
@@ -461,6 +525,28 @@ function Rsvp() {
                 placeholder="вегетарианство, аллергии…"
                 className="border-line focus:border-accent placeholder:text-mute/50 w-full border-b bg-transparent py-2 outline-none transition-colors"
               />
+            </Field>
+
+            <Field label="Ваши предпочтения по алкоголю">
+              <div className="mt-2 flex flex-wrap gap-2">
+                {ALCOHOL_OPTIONS.map((opt) => {
+                  const active = alcohol.includes(opt);
+                  return (
+                    <button
+                      type="button"
+                      key={opt}
+                      onClick={() => toggleAlcohol(opt)}
+                      className={`font-sans cursor-pointer rounded-full border px-4 py-2 text-xs tracking-[0.15em] transition-all ${
+                        active
+                          ? "border-charcoal bg-charcoal text-paper"
+                          : "border-line text-mute hover:border-charcoal/40"
+                      }`}
+                    >
+                      {opt}
+                    </button>
+                  );
+                })}
+              </div>
             </Field>
 
             <Field label="Комментарий">
@@ -495,7 +581,7 @@ function Rsvp() {
 
         <Reveal delay={300}>
           <p className="font-sans text-mute mt-6 text-center text-xs tracking-[0.2em]">
-            Просим ответить до 1 июля 2026
+            Просим ответить до 15 июля 2026
           </p>
         </Reveal>
       </div>
@@ -546,7 +632,7 @@ function Calendar() {
   const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
   return (
-    <section className="relative px-6 py-20 sm:py-28">
+    <section className="relative px-6 py-12 sm:py-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
@@ -620,7 +706,10 @@ function Calendar() {
               <Ornament />
             </div>
             <p className="font-serif text-charcoal mt-6 text-center text-lg italic sm:text-xl">
-              Дата нашей свадьбы — 03 / 08 / 2026
+              Не пропустите важное событие этого лета — день нашей свадьбы!
+            </p>
+            <p className="font-serif text-accent mt-3 text-center text-2xl tracking-[0.15em] sm:text-3xl">
+              03.08.2026
             </p>
           </div>
         </Reveal>
@@ -631,11 +720,11 @@ function Calendar() {
 
 function Contacts() {
   const people = [
-    { role: "Невеста", name: "Оля", phone: "+7 XXX XXX-XX-XX" },
-    { role: "Жених", name: "Никита", phone: "+7 XXX XXX-XX-XX" },
+    { role: "Невеста", name: "Оля", phone: "+7 937 663-84-15", tel: "+79376638415" },
+    { role: "Жених", name: "Никита", phone: "+7 937 232-88-44", tel: "+79372328844" },
   ];
   return (
-    <section className="px-6 py-20 sm:py-28">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-3xl">
         <Reveal>
           <SectionTitle kicker="Связь" title="Контакты" />
@@ -655,8 +744,8 @@ function Contacts() {
                 <h3 className="font-serif text-charcoal mt-3 text-3xl italic">{p.name}</h3>
                 <div className="bg-line mx-auto my-5 h-px w-10" />
                 <a
-                  href={`tel:${p.phone.replace(/\s|-/g, "")}`}
-                  className="font-sans text-charcoal hover:text-accent text-sm tracking-[0.2em] transition-colors"
+                  href={`tel:${p.tel}`}
+                  className="font-serif text-charcoal hover:text-accent text-xl tracking-[0.05em] transition-colors sm:text-2xl"
                 >
                   {p.phone}
                 </a>
@@ -668,4 +757,3 @@ function Contacts() {
     </section>
   );
 }
-
