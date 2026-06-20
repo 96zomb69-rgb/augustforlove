@@ -91,7 +91,7 @@ function Polaroid({
 }: {
   src: string;
   alt: string;
-  caption: string;
+  caption: React.ReactNode;
   rotate: string;
 }) {
   return (
