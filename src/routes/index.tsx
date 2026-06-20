@@ -620,7 +620,7 @@ function Calendar() {
               <Ornament />
             </div>
             <p className="font-serif text-charcoal mt-6 text-center text-lg italic sm:text-xl">
-              До встречи на нашей свадьбе — 03 / 08 / 2026
+              Дата нашей свадьбы — 03 / 08 / 2026
             </p>
           </div>
         </Reveal>
