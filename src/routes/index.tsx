@@ -96,7 +96,7 @@ function Polaroid({
 }) {
   return (
     <figure
-      className="shadow-polaroid bg-paper p-3 pb-10 transition-transform duration-700 hover:rotate-0"
+      className="shadow-polaroid bg-paper p-3 pb-5 transition-transform duration-700 hover:rotate-0"
       style={{ transform: `rotate(${rotate})` }}
     >
       <img
@@ -105,7 +105,7 @@ function Polaroid({
         className="block h-auto w-44 sm:w-56"
       />
       <figcaption
-        className="font-hand mt-3 px-1 text-center text-lg leading-tight text-charcoal/80 sm:text-xl"
+        className="font-hand mt-2 px-1 pb-1 text-center text-lg leading-tight text-charcoal/80 sm:text-xl"
         style={{ transform: "rotate(-2deg)" }}
       >
         {caption}
