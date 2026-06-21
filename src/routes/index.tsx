@@ -96,7 +96,7 @@ function Polaroid({
 }) {
   return (
     <figure
-      className="shadow-polaroid bg-paper w-52 p-3 pb-5 transition-transform duration-700 hover:rotate-0 sm:w-64"
+      className="shadow-polaroid bg-paper w-36 p-2 pb-4 transition-transform duration-700 hover:rotate-0 sm:w-52 sm:p-3 sm:pb-5"
       style={{ transform: `rotate(${rotate})` }}
     >
       <div className="aspect-[3/4] w-full overflow-hidden">
@@ -107,7 +107,7 @@ function Polaroid({
         />
       </div>
       <figcaption
-        className="font-hand mt-2 px-1 pb-1 text-center text-base leading-tight text-charcoal/80 sm:text-lg"
+        className="font-hand mt-1.5 px-1 pb-1 text-center text-sm leading-tight text-charcoal/80 sm:mt-2 sm:text-base"
         style={{ transform: "rotate(-2deg)" }}
       >
         {caption}
@@ -141,7 +141,7 @@ function Invitation() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-14 pb-14 sm:pt-20 sm:pb-20">
+    <section className="relative px-4 pt-14 pb-14 sm:px-6 sm:pt-20 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-sans text-charcoal mb-12 text-center text-[0.7rem] tracking-[0.55em] uppercase sm:mb-16 sm:text-xs">
@@ -150,7 +150,7 @@ function Hero() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-10">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 sm:gap-10">
           <Reveal delay={150}>
             <div className="flex justify-center sm:justify-end">
               <Polaroid
@@ -167,7 +167,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={300}>
-            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-2xl italic sm:gap-2 sm:text-4xl">
+            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-xl italic sm:gap-2 sm:text-4xl">
               <span>03</span>
               <span>08</span>
               <span>26</span>
