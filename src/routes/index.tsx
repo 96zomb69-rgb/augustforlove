@@ -141,7 +141,7 @@ function Invitation() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-14 pb-14 sm:pt-20 sm:pb-20">
+    <section className="relative px-4 pt-14 pb-14 sm:px-6 sm:pt-20 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="font-sans text-charcoal mb-12 text-center text-[0.7rem] tracking-[0.55em] uppercase sm:mb-16 sm:text-xs">
@@ -167,7 +167,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={300}>
-            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-lg italic sm:gap-2 sm:text-4xl">
+            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-xl italic sm:gap-2 sm:text-4xl">
               <span>03</span>
               <span>08</span>
               <span>26</span>
