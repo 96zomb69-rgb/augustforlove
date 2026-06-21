@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import olyaAsset from "@/assets/olya.jpg.asset.json";
 import nikitaAsset from "@/assets/nikita.jpg.asset.json";
 import venueAsset from "@/assets/venue-8milya.jpg.asset.json";
@@ -88,16 +88,23 @@ function Polaroid({
   alt,
   caption,
   rotate,
+  mobileRotate,
 }: {
   src: string;
   alt: string;
   caption: ReactNode;
   rotate: string;
+  mobileRotate?: string;
 }) {
+  const style = {
+    "--polaroid-rotate": rotate,
+    "--polaroid-mobile-rotate": mobileRotate ?? rotate,
+  } as CSSProperties;
+
   return (
     <figure
-      className="shadow-polaroid bg-paper w-36 p-2 pb-4 transition-transform duration-700 hover:rotate-0 sm:w-52 sm:p-3 sm:pb-5"
-      style={{ transform: `rotate(${rotate})` }}
+      className="polaroid-card shadow-polaroid bg-paper w-[clamp(6.75rem,35vw,9rem)] p-[clamp(0.4rem,1.8vw,0.5rem)] pb-[clamp(0.75rem,3.5vw,1rem)] transition-transform duration-700 hover:rotate-0 sm:w-52 sm:p-3 sm:pb-5"
+      style={style}
     >
       <div className="aspect-[3/4] w-full overflow-hidden">
         <img
@@ -107,7 +114,7 @@ function Polaroid({
         />
       </div>
       <figcaption
-        className="font-hand mt-1.5 px-1 pb-1 text-center text-sm leading-tight text-charcoal/80 sm:mt-2 sm:text-base"
+        className="font-hand mt-1 px-0.5 pb-0.5 text-center text-[clamp(0.68rem,3vw,0.875rem)] leading-[1.05] text-charcoal/80 sm:mt-2 sm:px-1 sm:pb-1 sm:text-base sm:leading-tight"
         style={{ transform: "rotate(-2deg)" }}
       >
         {caption}
@@ -150,9 +157,9 @@ function Hero() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 sm:gap-10">
+        <div className="mx-auto grid w-full max-w-[23rem] grid-cols-[minmax(0,1fr)_1.5rem_minmax(0,1fr)] items-center gap-0 sm:max-w-none sm:grid-cols-[1fr_auto_1fr] sm:gap-10">
           <Reveal delay={150}>
-            <div className="flex justify-center sm:justify-end">
+            <div className="flex min-w-0 justify-end pr-1 sm:pr-0">
               <Polaroid
                 src={brideChild}
                 alt="Оля в детстве"
@@ -162,12 +169,13 @@ function Hero() {
                   </>
                 }
                 rotate="-6deg"
+                mobileRotate="-3deg"
               />
             </div>
           </Reveal>
 
           <Reveal delay={300}>
-            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-xl italic sm:gap-2 sm:text-4xl">
+            <div className="font-serif text-mute/70 flex min-w-0 flex-col items-center gap-1 text-lg italic sm:gap-2 sm:text-4xl">
               <span>03</span>
               <span>08</span>
               <span>26</span>
@@ -175,12 +183,13 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={450}>
-            <div className="flex justify-center sm:justify-start">
+            <div className="flex min-w-0 justify-start pl-1 sm:pl-0">
               <Polaroid
                 src={groomChild}
                 alt="Никита в детстве"
                 caption="— им буду я ♡"
                 rotate="5deg"
+                mobileRotate="3deg"
               />
             </div>
           </Reveal>
