@@ -150,7 +150,7 @@ function Hero() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-10">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 sm:gap-10">
           <Reveal delay={150}>
             <div className="flex justify-center sm:justify-end">
               <Polaroid
@@ -167,7 +167,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={300}>
-            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-2xl italic sm:gap-2 sm:text-4xl">
+            <div className="font-serif text-mute/70 flex flex-col items-center gap-1 text-lg italic sm:gap-2 sm:text-4xl">
               <span>03</span>
               <span>08</span>
               <span>26</span>
