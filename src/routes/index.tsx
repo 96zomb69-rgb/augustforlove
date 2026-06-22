@@ -388,6 +388,30 @@ function DressCode() {
   );
 }
 
+function Wishes() {
+  return (
+    <section className="px-6 py-12 sm:py-16">
+      <div className="mx-auto max-w-2xl text-center">
+        <Reveal>
+          <SectionTitle kicker="Подарки" title="Пожелания" />
+        </Reveal>
+        <Reveal delay={150}>
+          <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
+            <p className="font-serif text-charcoal/90 text-lg leading-relaxed italic sm:text-xl">
+              Мы очень любим цветы, но ещё больше — музыку. Поэтому, если вы пожелаете, можете
+              подарить виниловую пластинку для нашей коллекции вместо букета цветов. Мы будем
+              счастливы!
+            </p>
+            <div className="mt-6">
+              <Ornament />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 const ALCOHOL_OPTIONS = [
   "Шампанское",
   "Белое вино",
