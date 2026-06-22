@@ -138,6 +138,8 @@ function Invitation() {
       <SectionDivider />
       <DressCode />
       <SectionDivider />
+      <Wishes />
+      <SectionDivider />
       <Contacts />
       <SectionDivider />
       <Rsvp />
@@ -299,9 +301,9 @@ function Location() {
 }
 
 const TIMELINE = [
-  { time: "16:00", title: "Сбор гостей", desc: "Аперитив на террасе" },
-  { time: "17:00", title: "Церемония", desc: "В саду под открытым небом" },
-  { time: "18:30", title: "Банкет", desc: "Ужин, тосты, танцы" },
+  { time: "15:15", title: "Сбор гостей", desc: "Аперитив на террасе" },
+  { time: "16:00", title: "Церемония", desc: "В саду под открытым небом" },
+  { time: "17:00", title: "Банкет", desc: "Ужин, тосты, танцы" },
   { time: "23:00", title: "Финал вечера", desc: "Фейерверк и пожелания" },
 ];
 
@@ -345,6 +347,9 @@ const SWATCHES = [
   { name: "Бежевый", color: "#e3d2b8" },
   { name: "Песочный", color: "#d9c9ae" },
   { name: "Розовый", color: "#e8c8c4" },
+  { name: "Нежно-голубой", color: "#c4dae8" },
+  { name: "Нежно-желтый", color: "#f3ebc4" },
+  { name: "Сиреневый", color: "#d8c4e8" },
   { name: "Шалфей", color: "#b3b89e" },
   { name: "Графит", color: "#4a4540" },
 ];
@@ -376,6 +381,30 @@ function DressCode() {
                 </span>
               </div>
             ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Wishes() {
+  return (
+    <section className="px-6 py-12 sm:py-16">
+      <div className="mx-auto max-w-2xl text-center">
+        <Reveal>
+          <SectionTitle kicker="Подарки" title="Пожелания" />
+        </Reveal>
+        <Reveal delay={150}>
+          <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
+            <p className="font-serif text-charcoal/90 text-lg leading-relaxed italic sm:text-xl">
+              Мы очень любим цветы, но ещё больше — музыку. Поэтому, если вы пожелаете, можете
+              подарить виниловую пластинку для нашей коллекции вместо букета цветов. Мы будем
+              счастливы!
+            </p>
+            <div className="mt-6">
+              <Ornament />
+            </div>
           </div>
         </Reveal>
       </div>
