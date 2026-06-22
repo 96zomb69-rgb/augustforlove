@@ -345,6 +345,9 @@ const SWATCHES = [
   { name: "Бежевый", color: "#e3d2b8" },
   { name: "Песочный", color: "#d9c9ae" },
   { name: "Розовый", color: "#e8c8c4" },
+  { name: "Нежно-голубой", color: "#c4dae8" },
+  { name: "Нежно-желтый", color: "#f3ebc4" },
+  { name: "Сиреневый", color: "#d8c4e8" },
   { name: "Шалфей", color: "#b3b89e" },
   { name: "Графит", color: "#4a4540" },
 ];
