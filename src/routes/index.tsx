@@ -138,6 +138,8 @@ function Invitation() {
       <SectionDivider />
       <DressCode />
       <SectionDivider />
+      <Wishes />
+      <SectionDivider />
       <Contacts />
       <SectionDivider />
       <Rsvp />
