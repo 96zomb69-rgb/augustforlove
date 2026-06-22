@@ -330,7 +330,6 @@ function Timeline() {
                 </div>
                 <div className={`${i % 2 === 0 ? "sm:text-left" : "sm:text-right"} text-center`}>
                   <h3 className="font-serif text-charcoal text-2xl sm:text-3xl">{item.title}</h3>
-                  <p className="font-sans text-mute mt-2 text-sm">{item.desc}</p>
                 </div>
                 <span className="bg-accent absolute top-1/2 left-1/2 hidden h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full sm:block" />
               </li>
