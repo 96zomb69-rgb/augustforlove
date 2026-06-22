@@ -3,10 +3,12 @@ import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type R
 import olyaAsset from "@/assets/olya.jpg.asset.json";
 import nikitaAsset from "@/assets/nikita.jpg.asset.json";
 import venueAsset from "@/assets/venue-8milya.jpg.asset.json";
+import { supabase } from "@/integrations/supabase/client";
 
 const brideChild = olyaAsset.url;
 const groomChild = nikitaAsset.url;
 const venue = venueAsset.url;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,8 +20,8 @@ export const Route = createFileRoute("/")({
   component: Invitation,
 });
 
-// TODO: replace with your Google Apps Script Web App URL when ready
-const RSVP_WEBHOOK_URL = "";
+
+
 
 function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -435,7 +437,8 @@ function Rsvp() {
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const guestNames: string[] = [];
     for (let i = 2; i <= guests; i++) {
       const v = String(fd.get(`guest_${i}`) || "").trim();
@@ -444,42 +447,28 @@ function Rsvp() {
     const payload = {
       name: String(fd.get("name") || ""),
       attending: String(fd.get("attending") || ""),
-      guests: String(fd.get("guests") || ""),
-      guestNames,
-      diet: String(fd.get("diet") || ""),
+      guests: Number(fd.get("guests") || guests) || 1,
+      guest_names: guestNames,
+      diet: String(fd.get("diet") || "") || null,
       alcohol,
-      comment: String(fd.get("comment") || ""),
-      submittedAt: new Date().toISOString(),
+      comment: String(fd.get("comment") || "") || null,
+      submitted_at: new Date().toISOString(),
     };
 
-    if (!RSVP_WEBHOOK_URL) {
-      console.info("RSVP payload (no webhook configured):", payload);
-      setStatus("ok");
-      (e.target as HTMLFormElement).reset();
-      setAttending("yes");
-      setGuests(1);
-      setAlcohol([]);
+    setStatus("sending");
+    const { error } = await supabase.from("rsvp_responses").insert(payload);
+    if (error) {
+      console.error("RSVP insert failed:", error);
+      setStatus("error");
       return;
     }
-
-    setStatus("sending");
-    try {
-      await fetch(RSVP_WEBHOOK_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      setStatus("ok");
-      (e.target as HTMLFormElement).reset();
-      setAttending("yes");
-      setGuests(1);
-      setAlcohol([]);
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
+    setStatus("ok");
+    form.reset();
+    setAttending("yes");
+    setGuests(1);
+    setAlcohol([]);
   }
+
 
   return (
     <section id="rsvp" className="px-6 py-12 sm:py-16">
