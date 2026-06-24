@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import olyaAsset from "@/assets/olya.jpg.asset.json";
 import nikitaAsset from "@/assets/nikita.jpg.asset.json";
@@ -10,15 +9,6 @@ const groomChild = nikitaAsset.url;
 const venue = venueAsset.url;
 
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Оля + Никита — 03.08.2026" },
-      { name: "description", content: "Приглашение на свадьбу Оли и Никиты — 3 августа 2026" },
-    ],
-  }),
-  component: Invitation,
-});
 
 
 
@@ -125,7 +115,7 @@ function Polaroid({
   );
 }
 
-function Invitation() {
+export default function Invitation() {
   return (
     <main className="text-foreground overflow-x-hidden">
       <Hero />
