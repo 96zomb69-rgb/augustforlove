@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
-import olyaAsset from "@/assets/olya.jpg.asset.json";
-import nikitaAsset from "@/assets/nikita.jpg.asset.json";
-import venueAsset from "@/assets/venue-8milya.jpg.asset.json";
 import { supabase } from "@/integrations/supabase/client";
 
-const brideChild = olyaAsset.url;
-const groomChild = nikitaAsset.url;
-const venue = venueAsset.url;
+const brideChild = "/images/olya.jpg";
+const groomChild = "/images/nikita.jpg";
+const venue = "/images/venue-8milya.jpg";
 
 
 
