@@ -103,11 +103,12 @@ function Polaroid({
         />
       </div>
       <figcaption
-        className="font-hand mt-1 px-0.5 pb-0.5 text-center text-[clamp(0.68rem,3vw,0.875rem)] leading-[1.05] text-charcoal/80 sm:mt-2 sm:px-1 sm:pb-1 sm:text-base sm:leading-tight"
+        className="font-hand mt-1 px-0.5 pb-0.5 text-center text-[clamp(0.82rem,3.6vw,1rem)] leading-[1.15] text-charcoal/85 sm:mt-2 sm:px-1 sm:pb-1 sm:text-lg sm:leading-snug"
         style={{ transform: "rotate(-2deg)" }}
       >
         {caption}
       </figcaption>
+
     </figure>
   );
 }
