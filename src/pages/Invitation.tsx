@@ -261,14 +261,17 @@ function Location() {
           </Reveal>
           <Reveal delay={300}>
             <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
-              <p className="font-sans text-accent text-[0.65rem] tracking-[0.4em] uppercase">
+              <p className="font-sans text-accent text-[0.7rem] tracking-[0.4em] uppercase">
                 Загородный комплекс
               </p>
               <h3 className="font-serif text-charcoal mt-3 text-3xl italic sm:text-4xl">
                 «8 Миля»
               </h3>
+              <p className="font-serif text-charcoal/80 mt-2 text-lg italic sm:text-xl">
+                Зал «Панорама»
+              </p>
               <div className="bg-line my-6 h-px w-12" />
-              <p className="font-sans text-mute text-sm leading-relaxed">
+              <p className="font-sans text-charcoal/70 text-base leading-relaxed">
                 Самарская область, Тольятти
                 <br />
                 М-5 «Урал», 977-й километр
@@ -283,6 +286,7 @@ function Location() {
                 <span aria-hidden="true">→</span>
               </a>
             </div>
+
           </Reveal>
         </div>
       </div>
