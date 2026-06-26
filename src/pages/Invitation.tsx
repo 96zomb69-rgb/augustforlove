@@ -769,9 +769,10 @@ function Contacts() {
           <SectionTitle kicker="Связь" title="Контакты" />
         </Reveal>
         <Reveal delay={150}>
-          <p className="font-sans text-mute mx-auto mb-12 max-w-xl text-center text-sm leading-relaxed">
+          <p className="font-sans text-charcoal/75 mx-auto mb-12 max-w-xl text-center text-base leading-relaxed">
             Если у вас появятся вопросы, вы всегда можете связаться с нами.
           </p>
+
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 sm:gap-10">
           {people.map((p, i) => (
