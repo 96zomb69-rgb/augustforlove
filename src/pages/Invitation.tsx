@@ -391,16 +391,30 @@ function Wishes() {
         </Reveal>
         <Reveal delay={150}>
           <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
-            <p className="font-serif text-charcoal/90 text-lg leading-relaxed italic sm:text-xl">
+            <p className="font-serif text-charcoal/90 text-xl leading-relaxed italic sm:text-2xl">
               Мы очень любим цветы, но ещё больше — музыку. Поэтому, если вы пожелаете, можете
               подарить виниловую пластинку для нашей коллекции вместо букета цветов. Мы будем
               счастливы!
             </p>
-            <div className="mt-6">
+            <div className="mt-8">
               <Ornament />
             </div>
+            <a
+              href="https://ozon.ru/t/p5SgbBL"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="bg-charcoal text-paper hover:bg-charcoal/85 mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 font-sans text-xs tracking-[0.35em] uppercase transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.2" />
+                <circle cx="12" cy="12" r="1" fill="currentColor" />
+              </svg>
+              Вишлист пластинок
+            </a>
           </div>
         </Reveal>
+
       </div>
     </section>
   );
