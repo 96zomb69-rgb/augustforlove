@@ -355,27 +355,28 @@ function DressCode() {
           <SectionTitle kicker="Дресс-код" title="Палитра вечера" />
         </Reveal>
         <Reveal delay={150}>
-          <p className="font-sans text-mute mx-auto mb-12 max-w-xl text-sm leading-relaxed">
+          <p className="font-sans text-charcoal/75 mx-auto mb-12 max-w-xl text-base leading-relaxed">
             Мы будем благодарны, если ваш образ поддержит общую палитру торжества. Нейтральные,
             тёплые, природные тона.
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <div className="flex flex-wrap items-end justify-center gap-6 sm:gap-10">
+          <div className="mx-auto grid max-w-md grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-end sm:justify-center sm:gap-10">
             {SWATCHES.map((s) => (
               <div key={s.name} className="flex flex-col items-center">
                 <span
-                  className="h-20 w-20 rounded-full shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_10px_24px_-12px_rgba(60,50,40,0.3)] sm:h-24 sm:w-24"
+                  className="h-[clamp(4rem,18vw,5rem)] w-[clamp(4rem,18vw,5rem)] rounded-full shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_10px_24px_-12px_rgba(60,50,40,0.3)] sm:h-24 sm:w-24"
                   style={{ background: s.color }}
                   aria-label={s.name}
                 />
-                <span className="font-sans text-mute mt-3 text-[0.65rem] tracking-[0.3em] uppercase">
+                <span className="font-sans text-charcoal/70 mt-3 text-[0.7rem] tracking-[0.25em] uppercase text-center">
                   {s.name}
                 </span>
               </div>
             ))}
           </div>
         </Reveal>
+
       </div>
     </section>
   );
