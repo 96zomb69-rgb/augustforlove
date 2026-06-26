@@ -103,11 +103,12 @@ function Polaroid({
         />
       </div>
       <figcaption
-        className="font-hand mt-1 px-0.5 pb-0.5 text-center text-[clamp(0.68rem,3vw,0.875rem)] leading-[1.05] text-charcoal/80 sm:mt-2 sm:px-1 sm:pb-1 sm:text-base sm:leading-tight"
+        className="font-hand mt-1 px-0.5 pb-0.5 text-center text-[clamp(0.82rem,3.6vw,1rem)] leading-[1.15] text-charcoal/85 sm:mt-2 sm:px-1 sm:pb-1 sm:text-lg sm:leading-snug"
         style={{ transform: "rotate(-2deg)" }}
       >
         {caption}
       </figcaption>
+
     </figure>
   );
 }
@@ -260,14 +261,17 @@ function Location() {
           </Reveal>
           <Reveal delay={300}>
             <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
-              <p className="font-sans text-accent text-[0.65rem] tracking-[0.4em] uppercase">
+              <p className="font-sans text-accent text-[0.7rem] tracking-[0.4em] uppercase">
                 Загородный комплекс
               </p>
               <h3 className="font-serif text-charcoal mt-3 text-3xl italic sm:text-4xl">
                 «8 Миля»
               </h3>
+              <p className="font-serif text-charcoal/80 mt-2 text-lg italic sm:text-xl">
+                Зал «Панорама»
+              </p>
               <div className="bg-line my-6 h-px w-12" />
-              <p className="font-sans text-mute text-sm leading-relaxed">
+              <p className="font-sans text-charcoal/70 text-base leading-relaxed">
                 Самарская область, Тольятти
                 <br />
                 М-5 «Урал», 977-й километр
@@ -282,6 +286,7 @@ function Location() {
                 <span aria-hidden="true">→</span>
               </a>
             </div>
+
           </Reveal>
         </div>
       </div>
@@ -350,27 +355,28 @@ function DressCode() {
           <SectionTitle kicker="Дресс-код" title="Палитра вечера" />
         </Reveal>
         <Reveal delay={150}>
-          <p className="font-sans text-mute mx-auto mb-12 max-w-xl text-sm leading-relaxed">
+          <p className="font-sans text-charcoal/75 mx-auto mb-12 max-w-xl text-base leading-relaxed">
             Мы будем благодарны, если ваш образ поддержит общую палитру торжества. Нейтральные,
             тёплые, природные тона.
           </p>
         </Reveal>
         <Reveal delay={300}>
-          <div className="flex flex-wrap items-end justify-center gap-6 sm:gap-10">
+          <div className="mx-auto grid max-w-md grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:flex sm:max-w-none sm:flex-wrap sm:items-end sm:justify-center sm:gap-10">
             {SWATCHES.map((s) => (
               <div key={s.name} className="flex flex-col items-center">
                 <span
-                  className="h-20 w-20 rounded-full shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_10px_24px_-12px_rgba(60,50,40,0.3)] sm:h-24 sm:w-24"
+                  className="h-[clamp(4rem,18vw,5rem)] w-[clamp(4rem,18vw,5rem)] rounded-full shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05),0_10px_24px_-12px_rgba(60,50,40,0.3)] sm:h-24 sm:w-24"
                   style={{ background: s.color }}
                   aria-label={s.name}
                 />
-                <span className="font-sans text-mute mt-3 text-[0.65rem] tracking-[0.3em] uppercase">
+                <span className="font-sans text-charcoal/70 mt-3 text-[0.7rem] tracking-[0.25em] uppercase text-center">
                   {s.name}
                 </span>
               </div>
             ))}
           </div>
         </Reveal>
+
       </div>
     </section>
   );
@@ -385,16 +391,30 @@ function Wishes() {
         </Reveal>
         <Reveal delay={150}>
           <div className="bg-paper shadow-card rounded-2xl p-8 sm:p-10">
-            <p className="font-serif text-charcoal/90 text-lg leading-relaxed italic sm:text-xl">
+            <p className="font-serif text-charcoal/90 text-xl leading-relaxed italic sm:text-2xl">
               Мы очень любим цветы, но ещё больше — музыку. Поэтому, если вы пожелаете, можете
               подарить виниловую пластинку для нашей коллекции вместо букета цветов. Мы будем
               счастливы!
             </p>
-            <div className="mt-6">
+            <div className="mt-8">
               <Ornament />
             </div>
+            <a
+              href="https://ozon.ru/t/p5SgbBL"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="bg-charcoal text-paper hover:bg-charcoal/85 mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 font-sans text-xs tracking-[0.35em] uppercase transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.2" />
+                <circle cx="12" cy="12" r="1" fill="currentColor" />
+              </svg>
+              Вишлист пластинок
+            </a>
           </div>
         </Reveal>
+
       </div>
     </section>
   );
@@ -749,9 +769,10 @@ function Contacts() {
           <SectionTitle kicker="Связь" title="Контакты" />
         </Reveal>
         <Reveal delay={150}>
-          <p className="font-sans text-mute mx-auto mb-12 max-w-xl text-center text-sm leading-relaxed">
+          <p className="font-sans text-charcoal/75 mx-auto mb-12 max-w-xl text-center text-base leading-relaxed">
             Если у вас появятся вопросы, вы всегда можете связаться с нами.
           </p>
+
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 sm:gap-10">
           {people.map((p, i) => (
