@@ -55,22 +55,19 @@ function SectionDivider() {
     <div className="px-6 py-4" aria-hidden="true">
       <div className="mx-auto flex max-w-md items-center justify-center gap-4 text-mute/60">
         <span className="h-px flex-1 bg-gradient-to-r from-transparent to-line" />
-        <svg width="46" height="14" viewBox="0 0 46 14" fill="none" className="opacity-80">
-          <path
-            d="M2 7 Q 11 1 20 7 T 38 7"
-            stroke="currentColor"
-            strokeWidth="0.7"
-            fill="none"
-          />
-          <circle cx="23" cy="7" r="1.6" fill="currentColor" />
-          <circle cx="6" cy="7" r="0.9" fill="currentColor" opacity="0.5" />
-          <circle cx="40" cy="7" r="0.9" fill="currentColor" opacity="0.5" />
-        </svg>
+        <div className="flex items-center gap-[2px]">
+          <span className="block h-2 w-2 bg-charcoal/70" />
+          <span className="block h-2 w-2 bg-paper border border-charcoal/30" />
+          <span className="block h-2 w-2 bg-charcoal/70" />
+          <span className="block h-2 w-2 bg-paper border border-charcoal/30" />
+          <span className="block h-2 w-2 bg-charcoal/70" />
+        </div>
         <span className="h-px flex-1 bg-gradient-to-l from-transparent to-line" />
       </div>
     </div>
   );
 }
+
 
 function Polaroid({
   src,
@@ -190,11 +187,12 @@ function Hero() {
         <Reveal delay={650}>
           <h1 className="font-serif text-charcoal mt-14 text-center text-3xl tracking-[0.08em] uppercase sm:mt-16 sm:text-6xl md:text-7xl">
             <span>Оля</span>
-            <span className="text-accent mx-3 inline-block align-middle text-xl sm:mx-6 sm:text-3xl">
-              ✦
+            <span className="text-accent mx-3 inline-block align-middle text-2xl sm:mx-6 sm:text-4xl" aria-hidden="true">
+              ♛
             </span>
             <span>Никита</span>
           </h1>
+
         </Reveal>
 
         <Reveal delay={800}>
@@ -652,12 +650,28 @@ function Closing() {
           </p>
         </Reveal>
         <Reveal delay={250}>
-          <p className="font-serif text-mute mt-6 text-lg">Оля &amp; Никита · 03.08.2026</p>
+          <figure className="mx-auto mt-10 max-w-sm">
+            <div className="bg-paper shadow-polaroid rotate-[-2deg] p-3 pb-5 sm:p-4 sm:pb-6">
+              <img
+                src="/images/meme-cats.jpg"
+                alt="Будущие жених и невеста"
+                loading="lazy"
+                className="block h-auto w-full"
+              />
+              <figcaption className="font-hand text-charcoal/80 mt-2 text-center text-lg sm:text-xl">
+                — это будем мы ♡
+              </figcaption>
+            </div>
+          </figure>
+        </Reveal>
+        <Reveal delay={350}>
+          <p className="font-serif text-mute mt-8 text-lg">Оля &amp; Никита · 03.08.2026</p>
         </Reveal>
       </div>
     </section>
   );
 }
+
 
 function Calendar() {
   const weeks: (number | null)[][] = [
@@ -758,42 +772,47 @@ function Calendar() {
 }
 
 function Contacts() {
-  const people = [
-    { role: "Невеста", name: "Оля", phone: "+7 937 663-84-15", tel: "+79376638415" },
-    { role: "Жених", name: "Никита", phone: "+7 937 232-88-44", tel: "+79372328844" },
-  ];
   return (
     <section className="px-6 py-12 sm:py-16">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-2xl">
         <Reveal>
           <SectionTitle kicker="Связь" title="Контакты" />
         </Reveal>
         <Reveal delay={150}>
-          <p className="font-sans text-charcoal/75 mx-auto mb-12 max-w-xl text-center text-base leading-relaxed">
-            Если у вас появятся вопросы, вы всегда можете связаться с нами.
+          <p className="font-sans text-charcoal/80 mx-auto mb-10 max-w-xl text-center text-base leading-relaxed sm:text-lg">
+            Если у вас появятся вопросы, вы всегда можете связаться с нашим замечательным организатором.
           </p>
-
         </Reveal>
-        <div className="grid gap-6 sm:grid-cols-2 sm:gap-10">
-          {people.map((p, i) => (
-            <Reveal key={p.name} delay={250 + i * 120}>
-              <div className="bg-paper shadow-card rounded-2xl p-8 text-center sm:p-10">
-                <p className="font-sans text-accent text-[0.6rem] tracking-[0.4em] uppercase">
-                  {p.role}
-                </p>
-                <h3 className="font-serif text-charcoal mt-3 text-3xl italic">{p.name}</h3>
-                <div className="bg-line mx-auto my-5 h-px w-10" />
-                <a
-                  href={`tel:${p.tel}`}
-                  className="font-serif text-charcoal hover:text-accent text-xl tracking-[0.05em] transition-colors sm:text-2xl"
-                >
-                  {p.phone}
-                </a>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={300}>
+          <div className="bg-paper shadow-card mx-auto max-w-md rounded-2xl p-8 text-center sm:p-10">
+            <p className="font-sans text-accent text-[0.6rem] tracking-[0.4em] uppercase">
+              Организатор
+            </p>
+            <h3 className="font-serif text-charcoal mt-3 text-3xl italic sm:text-4xl">
+              Анастасия
+            </h3>
+            <div className="bg-line mx-auto my-5 h-px w-10" />
+            <a
+              href="tel:+79372340318"
+              className="font-serif text-charcoal hover:text-accent block text-xl tracking-[0.05em] transition-colors sm:text-2xl"
+            >
+              +7 937 234-03-18
+            </a>
+            <a
+              href="https://t.me/anastasiashpet"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="font-sans text-mute hover:text-accent mt-4 inline-flex items-center gap-2 text-sm tracking-[0.15em] transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+              </svg>
+              @anastasiashpet
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
 }
+
