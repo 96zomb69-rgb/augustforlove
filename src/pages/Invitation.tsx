@@ -618,7 +618,7 @@ function Rsvp() {
 
         <Reveal delay={300}>
           <p className="font-sans text-mute mt-6 text-center text-xs tracking-[0.2em]">
-            Просим ответить до 15 июля 2026
+            Просим ответить до 10 июля 2026
           </p>
         </Reveal>
       </div>
