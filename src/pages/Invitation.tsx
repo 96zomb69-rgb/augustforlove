@@ -522,18 +522,18 @@ function Rsvp() {
             </Field>
 
             <Field label="Количество гостей">
-              <input
+              <select
                 name="guests"
-                type="number"
-                min={1}
-                max={6}
                 value={guests}
-                onChange={(e) => {
-                  const n = Math.max(1, Math.min(6, Number(e.target.value) || 1));
-                  setGuests(n);
-                }}
+                onChange={(e) => setGuests(Number(e.target.value))}
                 className="border-line focus:border-accent w-full border-b bg-transparent py-2 outline-none transition-colors"
-              />
+              >
+                {[1, 2, 3, 4, 5, 6].map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
             </Field>
 
             {guests > 1 && (
